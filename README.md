@@ -1,118 +1,117 @@
-📊 RFM Customer Segmentation Using Superstore Dataset
+# 📊 RFM Customer Segmentation Using Superstore Dataset
 
-This project applies RFM (Recency, Frequency, Monetary) Analysis to the popular Sample Superstore dataset to identify customer value segments and support data-driven marketing strategies. The workflow includes data preprocessing, feature engineering, scoring, segmentation, and visualization.
+This project performs **RFM (Recency, Frequency, Monetary)** analysis on the popular **Sample Superstore** dataset to segment customers based on their purchasing behavior. These insights help businesses design targeted marketing, retention strategies, and customer value optimization.
 
-📁 Project Overview
+---
 
-RFM analysis is a proven technique used in CRM and marketing analytics to classify customers based on their purchase behavior:
+## 📁 Project Overview
 
-Recency → How recently a customer made a purchase
+**RFM analysis** is a widely used CRM and marketing analytics technique that evaluates customers based on:
 
-Frequency → How often they purchased
+- **Recency (R):** How recently the customer purchased  
+- **Frequency (F):** How often they purchased  
+- **Monetary (M):** How much money they spent  
 
-Monetary → How much revenue they generated
+Using these metrics, customers are classified into meaningful value segments such as **Top Customers**, **High Value**, **Medium Value**, and **Lost Customers**.
 
-Using these metrics, customers are classified into meaningful segments (e.g., Top, High Value, Lost Customers), enabling targeted marketing and retention strategies.
+---
 
-🧰 Tools & Libraries Used
+## 🧰 Tools & Libraries Used
 
-Python
+- Python  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- xlrd (for reading Excel files)
 
-Pandas
+---
 
-NumPy
+## 📂 Dataset
 
-Matplotlib
+The project uses the **Sample Superstore** dataset containing:
 
-xlrd (for reading Excel files)
+- Order details  
+- Customer details  
+- Product data  
+- Sales, quantity, discount & profit  
 
-📂 Dataset
+**📌 Total Records:** 9,994 rows  
+**📌 Columns:** 21  
 
-The project uses the Sample Superstore dataset containing:
+---
 
-Order details
+## 🔍 Workflow Summary
 
-Customer details
+### **1. Data Loading and Exploration**
+- Loaded the dataset using `pandas.read_excel()`
+- Checked data types, missing values, and summary statistics
+- Explored categorical frequency distributions
 
-Product data
+---
 
-Sales, quantity, discount & profit
+### **2. RFM Feature Engineering**
+Created individual R, F, M metrics:
 
-💡 Total records: 9,994 rows | Columns: 21
+- **Recency:** Days since last purchase  
+- **Frequency:** Total number of transactions per customer  
+- **Monetary:** Total revenue per customer *(Sales × Quantity)*
 
-🔍 Workflow Summary
-1. Data Loading and Exploration
+---
 
-Loaded the Excel dataset using pandas.read_excel.
+### **3. Merging into RFM Table**
+Combined R, F, and M values into a single **RFM dataframe**.
 
-Checked datatypes, null counts, basic statistics.
+---
 
-Explored categorical frequency distributions.
+### **4. Ranking & Normalization**
+- Ranked customers based on R, F, M  
+- Normalized scores to a **0–100 scale** for comparability
 
-2. RFM Feature Engineering
+---
 
-Created separate R, F, and M dataframes:
+### **5. RFM Scoring**
+Final RFM Score computed using weighted formula:
 
-Recency: Days since last purchase
+| Metric    | Weight |
+|----------|--------|
+| Recency  | 15%    |
+| Frequency| 28%    |
+| Monetary | 57%    |
 
-Frequency: Number of transactions per customer
+---
 
-Monetary: Total revenue per customer (Sales × Quantity)
+### **6. Customer Segmentation**
 
-3. Merging into RFM Table
+Customers grouped based on RFM Score:
 
-Combined Recency, Frequency, and Monetary values into a single RFM dataframe.
+| RFM Score Range | Segment              |
+|-----------------|----------------------|
+| > 4.5           | Top Customer         |
+| 4.0 – 4.5       | High Value Customer  |
+| 3.0 – 4.0       | Medium Value Customer|
+| 1.5 – 3.0       | Low Value Customer   |
+| ≤ 1.5           | Lost Customer        |
 
-4. Ranking & Normalization
+---
 
-Ranked Recency, Frequency, and Monetary scores.
+### **7. Visualization**
+- Pie chart of customer segment distribution  
+- Helps understand which customer groups dominate the business  
+- Enables targeted campaigns and retention strategies  
 
-Normalized to 0–100 scale for comparison.
+---
 
-5. RFM Scoring
+## 📈 Insights
 
-Final score computed using weighted formula:
+- **Top and High-Value customers** drive the most revenue  
+- **Lost customers** represent potential reactivation opportunities  
+- Monetary value shows the strongest influence on the final score  
+- RFM segmentation provides a clear view of customer lifetime value  
 
-Metric	Weight
-Recency	15%
-Frequency	28%
-Monetary	57%
-6. Customer Segmentation
+---
 
-Customers categorized based on RFM Score:
+## 🚀 How to Run the Project
 
-RFM Score Range	Segment
-> 4.5	Top Customer
-4.0 – 4.5	High Value Customer
-3.0 – 4.0	Medium Value Customer
-1.5 – 3.0	Low Value Customer
-≤ 1.5	Lost Customer
-7. Visualization
-
-A pie chart shows the distribution of customer segments.
-
-📈 Insights
-
-The segmentation reveals how customers differ in buying behavior.
-
-High-value segments can be targeted for loyalty programs.
-
-Low and lost segments can be targeted for reactivation campaigns.
-
-Monetary value strongly influences the final customer score.
-
-🚀 How to Run the Project
-
-Clone this repository
-
+### **1. Clone the Repository**
+```bash
 git clone <your-repository-url>
-
-
-Install dependencies
-
-pip install pandas numpy matplotlib xlrd
-
-
-Place the dataset in the project folder.
-
-Run the Python script/Jupyter notebook.
