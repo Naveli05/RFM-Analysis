@@ -69,18 +69,9 @@ Combined R, F, and M values into a single **RFM dataframe**.
 
 ---
 
-### **5. RFM Scoring**
-Final RFM Score computed using weighted formula:
 
-| Metric    | Weight |
-|----------|--------|
-| Recency  | 15%    |
-| Frequency| 28%    |
-| Monetary | 57%    |
 
----
-
-### **6. Customer Segmentation**
+### **5. Customer Segmentation**
 
 Customers grouped based on RFM Score:
 
@@ -103,9 +94,7 @@ Customers grouped based on RFM Score:
 
 ## 📈 Insights
 
-- **Top and High-Value customers** drive the most revenue  
 - **Lost customers** represent potential reactivation opportunities  
-- Monetary value shows the strongest influence on the final score  
 - RFM segmentation provides a clear view of customer lifetime value  
 
 ---
